@@ -1,11 +1,3 @@
-//
-//  Player.cpp
-//  COSC4F00_ASSIGN2
-//
-//  Created by Fahad on 2016-10-29.
-//  Copyright © 2016 Fahad. All rights reserved.
-//
-
 #include "Player.hpp"
 
 Player::Player(Color c) {
@@ -33,4 +25,3 @@ void Player::printColor() {
     std::string message =  getColor() == WHITE ? "White" : "Red";
     std::cout << message;
 }
-

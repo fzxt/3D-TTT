@@ -1,10 +1,4 @@
-//
 //  Peg.cpp
-//  COSC4F00_ASSIGN2
-//
-//  Created by Fahad on 2016-10-28.
-//  Copyright © 2016 Fahad. All rights reserved.
-//
 
 #include <iostream>
 
@@ -18,9 +12,7 @@ void Peg::addBead(Bead b) {
     if (!isFull()) {
         this->beads.push_back(b);
     } else {
-        //TODO: Throw better error.
-        //throw std::runtime_error("This peg is full");
-        return;
+        throw std::runtime_error("This peg is full");
     }
 }
 
@@ -39,7 +31,7 @@ void Peg::printBeadAtLevel(int l) {
         if (currBead.color == RED || currBead.color == WHITE) {
             std::cout << currBead << " ";
         }
-        
+
     } catch (const std::out_of_range& oor) {
         std::cout << "* ";
     }

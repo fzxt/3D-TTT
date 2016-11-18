@@ -1,13 +1,6 @@
-//
 //  ConsoleClient.cpp
-//  COSC4F00_ASSIGN2
-//
-//  Created by Fahad on 2016-11-12.
-//  Copyright © 2016 Fahad. All rights reserved.
-//
 
 #include "ConsoleClient.hpp"
-
 
 ConsoleClient::ConsoleClient() {}
 
@@ -17,7 +10,7 @@ Color ConsoleClient::getPlayerColor() {
     std::cout << "Please pick a color, R for Red, W for White: ";
     std::cin >> playerChoice;
     playerChoice = to_lower(playerChoice);
-    
+
     if (playerChoice == "r") {
         result = RED;
         AIColor = WHITE;
@@ -28,7 +21,7 @@ Color ConsoleClient::getPlayerColor() {
         std::cout << "Error, please enter either R or W";
         getPlayerColor();
     }
-    
+
     return result;
 }
 
@@ -38,17 +31,17 @@ Color ConsoleClient::getAIColor() {
 
 char ConsoleClient::getPlayerMove() {
     char result = 'a';
-    
+
     std::cout << "Please pick a peg (enter a letter from A-H): ";
-    
+
     std::cin >> result;
     char toLowerResult = tolower(result);
     int code = toLowerResult - 97;
     if (code < 0 || code > 7) {
-        std::cout << "Error, please enter a peg from (A-H)";
+        std::cout << "Error, please enter a peg from (A-H).\n";
         return getPlayerMove();
     }
-    
+
     return result;
 }
 
@@ -57,7 +50,7 @@ bool ConsoleClient::promptExplanation() {
 }
 
 bool ConsoleClient::playAgain() {
-    return prompt("Would you like to play again? (Y/N)");
+    return prompt("Would you like to play again? (Y/N): ");
 }
 
 bool ConsoleClient::prompt(std::string message) {
@@ -110,15 +103,14 @@ void ConsoleClient::explainGame() {
     "Enjoy!\r\n"
     "\r\n"
     "---------------------------------------------\r\n";
-    
+
     std::cout << sb;
 }
 
 std::string ConsoleClient::to_lower(std::string str) {
-    
     for(unsigned int i = 0; i < str.length(); ++i) {
         str[i] = tolower(str[i]);
     }
-    
+
     return str;
 }

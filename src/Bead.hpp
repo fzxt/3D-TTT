@@ -1,11 +1,3 @@
-//
-//  Bead.hpp
-//  COSC4F00_ASSIGN2
-//
-//  Created by Fahad on 2016-10-28.
-//  Copyright © 2016 Fahad. All rights reserved.
-//
-
 #ifndef Bead_hpp
 #define Bead_hpp
 
@@ -13,16 +5,39 @@
 #include <ostream>
 #include "Color.cpp"
 
+/**
+ * Class which represents a bead.
+ */
+
 class Bead {
 public:
+
+    /**
+     * Constructor, takes in Color enum.
+     */
     Bead(Color c);
     Color color;
     
+    /**
+     * Overload operator to print.
+     */
     friend std::ostream& operator<<(std::ostream &strm, const Bead &b) {
-        std::string message = b.color == WHITE ? "W" : "R";
+        std::string message = "";
+        
+        switch(b.color) {
+            case WHITE:
+                message = "W";
+                break;
+            case RED:
+                message = "R";
+                break;
+            default:
+                message = "*";
+        }
+        
         return strm << message;
     }
 };
 
-#endif 
+#endif
 /* Bead_hpp */

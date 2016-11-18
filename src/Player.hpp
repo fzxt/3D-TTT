@@ -1,11 +1,3 @@
-//
-//  Player.hpp
-//  COSC4F00_ASSIGN2
-//
-//  Created by Fahad on 2016-10-29.
-//  Copyright © 2016 Fahad. All rights reserved.
-//
-
 #ifndef Player_hpp
 #define Player_hpp
 
@@ -14,7 +6,6 @@
 #include <iostream>
 
 #include "Color.cpp"
-
 
 class Player {
     int score;
@@ -26,6 +17,10 @@ public:
     void setScore(int val);
     Color getColor();
     void printColor();
+    /**
+     * Overload comparison.
+     * Checks for same color.
+     */
     friend bool operator==(const Player& a1, const Player& a2);
 };
 

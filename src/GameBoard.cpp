@@ -1,9 +1,4 @@
-//
 //  GameBoard.cpp
-//  COSC4F00_ASSIGN2
-//
-//  Created by Fahad on 2016-10-28.
-//  Copyright © 2016 Fahad. All rights reserved.
 
 #include <iostream>
 #include "GameBoard.hpp"
@@ -30,6 +25,7 @@ void GameBoard::setCurrentTurn(Player p) {
     currTurn = p;
 }
 
+
 void GameBoard::printBoard() {
     for (int l = 0; l < 3; l++) {
         for (int i = 0; i < 8; i++) {
@@ -37,7 +33,7 @@ void GameBoard::printBoard() {
             if (i == 2) std::cout << std::endl << " ";
             else if (i == 4) std::cout << std::endl;
         }
-        
+
         std::cout << "\n\n";
     }
 }
@@ -48,13 +44,13 @@ Peg GameBoard::at(int n) {
 
 std::vector<char> GameBoard::getAvailableMoves() {
     std::vector<char> result;
-    
+
     for (int i = 0; i < board.size(); i++) {
         if (!board.at(i).isFull()) {
             result.push_back((char) 65+i);
         }
     }
-    
+
     return result;
 }
 
@@ -63,8 +59,7 @@ bool GameBoard::isFull() {
     for (auto peg = board.begin(); peg != board.end(); peg++) {
         if (!peg->isFull()) return false;
     }
-    
+
     //The board is full, calculate the score, let them know who won.
     return true;
 }
-

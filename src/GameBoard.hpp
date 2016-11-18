@@ -1,11 +1,3 @@
-//
-//  GameBoard.hpp
-//  COSC4F00_ASSIGN2
-//
-//  Created by Fahad on 2016-10-28.
-//  Copyright © 2016 Fahad. All rights reserved.
-//
-
 #ifndef GameBoard_hpp
 #define GameBoard_hpp
 
@@ -15,6 +7,10 @@
 #include "Peg.hpp"
 #include "Player.hpp"
 
+/**
+ * Class that represents a GameBoard for 3D TTT.
+ */
+
 class GameBoard {
 private:
     std::vector<Player> players;
@@ -23,15 +19,31 @@ private:
     int currTurnIdx;
 public:
     GameBoard(std::vector<Player> playersPlaying);
+    /**
+     * Method to make a move, or to add a bead to the Peg.
+     * @param b     Bead to add the board.
+     * @param pegId Peg to add to.
+     */
     void addBead(Bead b, char pegId);
     void printBoard();
-    void scoreBoard();
+    /**
+     * Method to return the available moves
+     * @return vector of avaialble pegs, by peg id (A-H)
+     */
     std::vector<char> getAvailableMoves();
+    /**
+     * Sets the current turn.
+     * @param p player to set turn to.
+     */
     void setCurrentTurn(Player p);
     Player getCurrentTurn();
+    /**
+     * Returns peg
+     * @param  n - which peg.
+     * @return   Peg.
+     */
     Peg at(int n);
     bool isFull();
-    void reset();
 };
 
 #endif /* GameBoard_hpp */

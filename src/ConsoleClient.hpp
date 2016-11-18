@@ -1,11 +1,3 @@
-//
-//  ConsoleClient.hpp
-//  COSC4F00_ASSIGN2
-//
-//  Created by Fahad on 2016-11-12.
-//  Copyright © 2016 Fahad. All rights reserved.
-//
-
 #ifndef ConsoleClient_hpp
 #define ConsoleClient_hpp
 
@@ -18,14 +10,27 @@
 class ConsoleClient {
 public:
     ConsoleClient();
-    void run();
     Color getPlayerColor();
     Color getAIColor();
+    /**
+     * Prompts a user if they want an explanation to the game.
+     * @return true if they do.
+     */
     bool promptExplanation();
+    /**
+     * Promps the user if they want to play again.
+     * @return true if they do.
+     */
     bool playAgain();
+    /**
+     * Method to print to the console an explanation of the game.
+     */
     void explainGame();
+    /**
+     * Prompts the user to pick a peg.
+     * @return character representing a peg (A-H)
+     */
     char getPlayerMove();
-    void printAIMove(char move);
 private:
     Color playerColor;
     Color AIColor;
